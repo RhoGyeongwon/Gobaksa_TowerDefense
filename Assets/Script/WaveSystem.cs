@@ -15,7 +15,7 @@ public class WaveSystem : MonoBehaviour
     [SerializeField] private EnemySpawner enemySpawner;
     private int currentWaveIndex = -1;
 
-    public int CurrentWave => currentWaveIndex + 1;
+    public int CurrentWave => currentWaveIndex + 1; //단순한 값을 읽기 위해서라면, 여기서 처리하는 건 좋지않은거같다.
     public int MaxWave => waves.Length;
     
     public void StartWave()

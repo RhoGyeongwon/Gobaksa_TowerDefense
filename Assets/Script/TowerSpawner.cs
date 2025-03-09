@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class TowerSpawner : MonoBehaviour
@@ -25,7 +26,8 @@ public class TowerSpawner : MonoBehaviour
         
         tile.IsBuildTower = true;
         playerGold.CurrentGold -= towerBuildGold;
-        GameObject towerObject = Instantiate(towerPrefab, tileTransform.position, Quaternion.identity);
+        Vector3 position = tileTransform.position + Vector3.back; //왜 타일보다 z축 -1 위치에 배치했을까? 아 타워가 더 앞에 있다!
+        GameObject towerObject = Instantiate(towerPrefab, position, Quaternion.identity);
         towerObject.GetComponent<TowerWeapon>().Setup(enemySpawner);
     }
 }

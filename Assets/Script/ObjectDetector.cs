@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectDetector : MonoBehaviour
 {
     [SerializeField] private TowerSpawner towerSpawner;
+    [SerializeField] private TowerDataViewer towerDataViewer;
     
     private Camera mainCamera;
     private Ray ray;
@@ -27,6 +28,10 @@ public class ObjectDetector : MonoBehaviour
                 {
                     towerSpawner.SpawnTower(hit.transform);
                 }
+                else if (hit.transform.CompareTag("Tower")) //아 raycast로 얘가 먼저 더 인식이 될 수가 있나? 신기하네..
+                {
+                    towerDataViewer.OnPanel(hit.transform);
+                }   
             }
         }
     }

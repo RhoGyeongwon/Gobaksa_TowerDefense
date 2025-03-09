@@ -16,10 +16,17 @@ public class TowerWeapon : MonoBehaviour
     [SerializeField] private float attakeRate = 0.5f; // 공격 주기
     [SerializeField] private float attakeRange = 2.0f; //공격범위
     [SerializeField] private int attackDamage = 1;
+    private int level = 0;
     private WeaponState weaponState = WeaponState.SearchTarget;
 
     private Transform attackTarget = null;
     private EnemySpawner enemySpawner;
+
+    public float Damage => attackDamage;
+    public float Rate => attakeRate;
+    public float Range => attakeRange;
+
+    public int Level => level + 1;
     // Start is called before the first frame update
 
     public void Setup(EnemySpawner _enemySpawner) //어쩔 때 Initialize같은 함수를 쓰는 걸까?, 외부에서 받은 정보를 설정하는 경우에 적합.
