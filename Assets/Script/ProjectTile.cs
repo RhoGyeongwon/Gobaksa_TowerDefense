@@ -7,9 +7,9 @@ public class ProjectTile : MonoBehaviour
 {
     private Movement2D movement2D;
     private Transform target;
-    private int damage;
+    private float damage;
     
-    public void Setup(Transform _target, int _damage)
+    public void Setup(Transform _target, float _damage)
     {
         movement2D = GetComponent<Movement2D>();
         target = _target;
